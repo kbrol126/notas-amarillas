@@ -1,0 +1,15 @@
+import { todoItem } from "../components/todo-items/todo-items";
+import { initButtonBlue } from "../components/button-comp";
+import { initHeader } from "../components/header/header";
+import { initLabelInput } from "../components/label+input";
+import { initTitulo } from "../components/titulo/titulo";
+import { initRouter } from "../router";
+import { state } from "../state";
+state.init();
+todoItem();
+initButtonBlue();
+initHeader();
+initLabelInput();
+initTitulo();
+const root = document.querySelector(".root");
+initRouter(root);
