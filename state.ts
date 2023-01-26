@@ -13,7 +13,10 @@ const state = {
   },
   getEnableTask() {
     const cS = this.getState();
-    return cS.task.filter((t) => !t.deleted);
+
+    const arrayTask: [] = cS.task;
+    console.log(arrayTask);
+    return arrayTask.filter((t: any) => t.deleted == false);
   },
   changeItem(id, value) {
     const cS = this.getState();
@@ -37,17 +40,24 @@ const state = {
   },
   addTask(id: number, title: string) {
     const cS = state.getState();
-    cS.task.push({ id, title, checked: false });
+    cS.task.push({ id, title, checked: false, deleted: false });
     this.setState(cS);
   },
 
-  deleteItems(id) {
+  deleteItems(id: number) {
     const cS = this.getState();
-    const found = cS.task.filter((i) => {
-      return i.id != Number(id);
+    const arrayFiltrado = cS.task.filter((i) => {
+      return i.id != id;
     });
-    console.log(found);
-    this.setState(found);
+    const itemDelete = cS.task.find((i) => {
+      return i.id == id;
+    });
+    console.log(itemDelete);
+    itemDelete.deleted = true;
+
+    arrayFiltrado.push(itemDelete);
+    cS.task = arrayFiltrado;
+    this.setState(cS);
   },
 };
 

@@ -5,7 +5,7 @@ import { initLabelInput } from "../components/label+input";
 import { initTitulo } from "../components/titulo/titulo";
 import { initRouter } from "../router";
 import { state } from "../state";
-state.init();
+// state.init();
 todoItem();
 initButtonBlue();
 initHeader();

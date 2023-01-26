@@ -42,7 +42,7 @@ export function initStep1(container) {
   tasksContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("remove")) {
       const itemRemove = e.target.parentNode.parentNode.parentNode;
-      state.deleteItems(itemRemove.id);
+      state.deleteItems(Number(itemRemove.id));
     }
   });
   const style = document.createElement("style");
@@ -62,6 +62,7 @@ export function initStep1(container) {
       const todoItemEl = document.createElement("todo-item");
       todoItemEl.setAttribute("title", i.title);
       todoItemEl.setAttribute("id", i.id);
+
       if (i.checked) {
         todoItemEl.setAttribute("checked", i.checked);
       }

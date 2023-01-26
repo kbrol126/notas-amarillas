@@ -3,6 +3,7 @@ export function todoItem() {
     title__El: string;
     checked: boolean = false;
     ids: number;
+
     constructor() {
       super();
     }
@@ -10,6 +11,7 @@ export function todoItem() {
       this.title__El = this.getAttribute("title") || "";
       this.ids = Number(this.getAttribute("id") || "");
       this.checked = this.hasAttribute("checked");
+
       const h3 = document.createElement("h3");
       h3.textContent = this.title__El;
       h3.classList.add("h3");
